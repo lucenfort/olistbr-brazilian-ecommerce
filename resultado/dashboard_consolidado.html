@@ -1,0 +1,146 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Dashboard Olist - Análise Completa de E-commerce</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #003057;
+                color: white;
+            }
+            .container {
+                width: 100%;
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            .header {
+                text-align: center;
+                padding: 20px 0;
+                margin-bottom: 30px;
+                background-color: #001e3c;
+                border-radius: 5px;
+            }
+            .dashboard-container {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .dashboard {
+                width: 100%;
+                height: 900px;
+                border: none;
+                border-radius: 5px;
+            }
+            .row {
+                display: flex;
+                gap: 20px;
+                margin-bottom: 20px;
+            }
+            .col {
+                flex: 1;
+            }
+            .map-dashboard {
+                width: 100%;
+                height: 600px;
+                border: none;
+                border-radius: 5px;
+            }
+            .tabela-dashboard {
+                width: 100%;
+                height: 600px;
+                border: none;
+                border-radius: 5px;
+            }
+            h1, h2, h3 {
+                color: white;
+            }
+            .card {
+                background-color: #001e3c;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .section-title {
+                background-color: #F15A29;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                margin-top: 40px;
+                margin-bottom: 20px;
+                font-weight: bold;
+            }
+            .description {
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+            .requirements {
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .requirements ul {
+                margin: 0;
+                padding-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>DASHBOARD OLIST E-COMMERCE</h1>
+                <p>Análise de dados e insights estratégicos da plataforma brasileira de e-commerce</p>
+            </div>
+            
+            <div class="description">
+                Este dashboard apresenta a análise completa do dataset de e-commerce brasileiro da Olist,
+                seguindo os requisitos estabelecidos no desafio técnico. A análise está dividida em seções principais,
+                conforme solicitado no escopo do projeto.
+            </div>
+            
+            <div class="section-title">1. VISÃO GERAL DE VENDAS</div>
+            
+            <div class="requirements">
+                <p><strong>Requisito atendido:</strong> "Um dashboard geral que mostre a evolução das vendas ao longo do tempo"</p>
+                <ul>
+                    <li>Evolução de vendas mensais</li>
+                    <li>Análise por estado e categoria</li>
+                    <li>Tempo médio de entrega</li>
+                    <li>Desempenho de vendedores</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Dashboard Geral Evolutivo</h2>
+                <iframe class="dashboard" src="dashboard_vendas.html"></iframe>
+            </div>
+            
+            <div class="section-title">2. DISTRIBUIÇÃO GEOGRÁFICA DAS VENDAS</div>
+            
+            <div class="requirements">
+                <p><strong>Requisito atendido:</strong> "Um mapa de calor mostrando a concentração de vendas por região/estado do Brasil"</p>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <h2>Mapa de Vendas por Estado</h2>
+                        <iframe class="map-dashboard" src="dashboard_mapa.html"></iframe>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <h2>Dados Detalhados por Estado</h2>
+                        <iframe class="tabela-dashboard" src="tabela_estados.html"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+    </html>
+    
