@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+env.bak/
+
+# Local environment / credentials
+*.env
+.env*
+kaggle.json
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Data and database
+data/
+*.csv
+*.zip
+*.parquet
+*.feather
+*.pickle
+*.pkl
+*.joblib
+*.db
+*.sqlite
+*.duckdb
+*.duckdb.wal
+olist.db
+
+# Generated results
+resultado/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Jupyter
+.ipynb_checkpoints/

@@ -1,11 +1,14 @@
-pandas>=2.0.0
 numpy>=1.24.3
+polars>=1.0.0
+duckdb>=1.0.0
 matplotlib>=3.7.1
 seaborn>=0.12.2
 plotly>=5.14.1
+kaleido>=0.2.1
 scikit-learn>=1.2.2
 xgboost>=1.7.5
+lightgbm>=4.0.0
+optuna>=3.6.0
 imbalanced-learn>=0.10.1
 tqdm>=4.65.0
 requests>=2.30.0
-sqlite3
