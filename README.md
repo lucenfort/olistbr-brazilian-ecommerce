@@ -1,93 +1,114 @@
-# Olist E-commerce Analytics
+<div align="center">
+  <img src="assets/banner.svg" alt="Olist E-Commerce Analytics Banner" width="100%" />
 
-<p align="center">
-  <img src="./assets/banner.svg" alt="Project Banner" width="100%" />
-</p>
+  <br/><br/>
 
-<p align="left">
-	<img src="https://img.shields.io/badge/Python-3.12-FFD700?style=for-the-badge&logo=python&logoColor=111111&labelColor=0B0B0B" alt="Python" />
-	<img src="https://img.shields.io/badge/Polars-1.0+-00FFF7?style=for-the-badge&logo=polars&logoColor=111111&labelColor=0B0B0B" alt="Polars" />
-	<img src="https://img.shields.io/badge/DuckDB-1.0+-FF00FF?style=for-the-badge&logo=duckdb&logoColor=111111&labelColor=0B0B0B" alt="DuckDB" />
-	<img src="https://img.shields.io/badge/Status-Estável-9F00FF?style=for-the-badge&logoColor=111111&labelColor=0B0B0B" alt="Status" />
-</p>
-
-Análise de dados end-to-end do dataset público "Brazilian E-Commerce Public Dataset by Olist". Este projeto implementa um pipeline de dados robusto, desde o ETL até a modelagem preditiva de atrasos em entregas, utilizando as ferramentas mais modernas do ecossistema Python.
-
-## [>] SYS.NAVEGAÇÃO
-
-[Visão Geral](#-visão-geral) • [Stack](#-arquitetura-e-stack-tecnológica) • [Estrutura](#-estrutura-do-projeto) • [Execução](#-como-executar) • [Resultados](#-principais-resultados)
+  <p align="center">
+    <strong>Plataforma de Engenharia de Dados Colunar, Segmentação RFM &amp; Inteligência Preditiva</strong><br/>
+    Processamento de alta performance com <strong>Polars &amp; DuckDB</strong>, análise estratégica de coortes e previsão de atrasos logísticos com <strong>XGBoost &amp; Optuna</strong> sobre <strong>100k+ pedidos</strong>.
+  </p>
+</div>
 
 ---
 
-## [~] VISÃO_GERAL
+## 📌 1. Visão Geral da Arquitetura & Pipeline
 
-A solução abrange informações sobre aproximadamente 100.000 pedidos realizados no Brasil entre 2016 e 2018.
-- **ETL Avançado**: Download automatizado e ingestão em DuckDB com processamento Polars.
-- **Análise Estratégica**: Segmentação RFM, análise de retenção (cohort) e satisfação.
-- **Machine Learning**: Treinamento de XGBoost e LightGBM com otimização Optuna.
+O pipeline processa aproximadamente **100.000 pedidos transacionais** (2016–2018), integrando ingestão vetorizada, segmentação de clientes e esteiras de Machine Learning:
 
-## [@] ARQUITETURA_E_STACK
-
-- **Processamento**: `Polars` & `DuckDB` (Vetorização orientada a colunas).
-- **Machine Learning**: `Scikit-Learn`, `XGBoost`, `LightGBM`.
-- **Otimização**: `Optuna` (Busca Bayesiana de hiperparâmetros).
-- **Visualização**: `Plotly` (Gráficos interativos de alta fidelidade).
-
-## [=] ESTRUTURA_PROJETO
-
+```mermaid
+flowchart LR
+    A[Dataset Relacional Olist Kaggle] --> B[Ingestão DuckDB & Polars]
+    B --> C[Segmentação RFM & Análise de Retenção]
+    B --> D[Engenharia de Features Logísticas]
+    D --> E[Otimização Bayesiana Optuna]
+    E --> F[Classificador XGBoost / LightGBM]
+    F --> G[Dashboards & Relatórios de Negócio]
 ```
+
+---
+
+## 📁 2. Estrutura do Repositório
+
+```text
 olistbr-brazilian-ecommerce/
-├── assets/               # HUDs e Banner Cyberpunk
-├── data/                 # Diretório de dados brutos
-├── resultado/            # Gráficos, Modelos e Relatórios
-├── src/                  # Código fonte modular
-│   ├── analysis/         # EDA e Business Logic
-│   ├── etl/              # Download, Ingestão e Transformação
-│   ├── models/           # Treinamento e Avaliação ML
-│   ├── visualization/    # Geração de Gráficos e Dashboards
-│   ├── config.py         # Configurações globais
-│   └── main.py           # Orquestrador do pipeline
-├── requirements.txt      # Dependências do sistema
-└── README.md             # Documentação técnica
+├── assets/                  # Banners dinâmicos e identidades visuais do projeto
+├── data/                    # Diretório estruturado para armazenamento e cache dos dados brutos
+├── resultado/               # Artefatos gerados: gráficos de alta resolução, relatórios e modelos
+├── src/
+│   ├── analysis/            # Análise Exploratória (EDA), segmentação RFM e lógica de negócio
+│   ├── etl/                 # Módulos de download, ingestão vetorizada e transformações
+│   ├── models/              # Treinamento de XGBoost/LightGBM e otimização com Optuna
+│   ├── visualization/       # Geradores de gráficos interativos (Plotly/Seaborn)
+│   ├── config.py            # Definições globais de caminhos, seeds e constantes
+│   └── main.py              # Orquestrador do pipeline analítico e preditivo
+├── requirements.txt         # Dependências do ecossistema Python (Polars, DuckDB, Optuna)
+└── README.md                # Documentação técnica e guia de reprodução
 ```
 
 ---
 
-## [*] INSTALAÇÃO_E_EXECUÇÃO
+## ⚙️ 3. Configuração do Ambiente
 
-### 1. Clonar o sistema
+### Pré-requisitos
+- Python 3.10+
+- Git
+
+### Instalação
+
 ```bash
+# 1. Clone o repositório
 git clone https://github.com/lucenfort/olistbr-brazilian-ecommerce.git
 cd olistbr-brazilian-ecommerce
-```
 
-### 2. Configurar Ambiente
-```bash
-python -m venv .venv
+# 2. Crie e ative o ambiente virtual
+python3 -m venv .venv
 source .venv/bin/activate  # Linux/macOS
+# .venv\Scripts\activate   # Windows
+
+# 3. Instale as dependências
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 3. Executar Pipeline
+---
+
+## 🚀 4. Execução dos Componentes
+
+### 4.1 Execução do Pipeline Analítico Completo
+Para executar o download, a ingestão em DuckDB, as análises de negócio e o treinamento preditivo:
+
 ```bash
-python src/main.py
+python3 src/main.py
 ```
 
-O script automatiza o download via API do Kaggle, processa os dados e gera relatórios completos em `resultado/`.
+Os relatórios analíticos, matrizes de confusão e gráficos de coorte serão gerados automaticamente na pasta `resultado/`.
 
 ---
 
-## [#] PRINCIPAIS_RESULTADOS
+## 📊 5. Principais Resultados & Insights de Negócio
 
-### Insights de Negócio
-- **Faturamento**: R$ 13.278.587,41 analisados.
-- **Recorrência**: 3,0% (Modelo altamente transacional).
-- **Clusters**: Segmentação RFM identificou 3 perfis distintos de clientes através do método Silhouette.
+### 5.1 Métricas Estratégicas & Comportamento
+- **Volume Total Transacionado (GMV):** `R$ 13.278.587,41` analisados.
+- **Taxa de Recompra:** `3.0%` (Perfil predominantemente transacional com forte dependência de aquisição contínua).
+- **Segmentação RFM:** Agrupamento em 3 personas estratégicas (Campeões, Clientes em Risco e Novos Compradores) validados via *Silhouette Score*.
 
-### Performance Preditiva (Atrasos)
-- **Melhor Modelo**: XGBoost
-- **ROC-AUC**: 0.7908
-- **PR-AUC**: 0.3596
+### 5.2 Performance Preditiva (Atrasos na Entrega)
+- **Melhor Modelo:** XGBoost Classifier com ajuste bayesiano via Optuna.
+- **Área sob a Curva ROC (ROC-AUC):** `0.7908`
+- **Área sob a Curva Precision-Recall (PR-AUC):** `0.3596` (Foco em mitigar falsos negativos em classes desbalanceadas).
 
 ---
 
+## 📜 Créditos & Conjunto de Dados
+
+- **Dataset:** *Brazilian E-Commerce Public Dataset by Olist*
+- **Fonte Oficial:** [Kaggle Dataset Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+- **Licença:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+---
+
+## 👨‍💻 Autor
+
+- **Luciano Silva de Arruda**
+- Repositório Oficial: [`https://github.com/lucenfort/olistbr-brazilian-ecommerce`](https://github.com/lucenfort/olistbr-brazilian-ecommerce)
+- LinkedIn: [Luciano Arruda](https://linkedin.com/in/lucenfort)
